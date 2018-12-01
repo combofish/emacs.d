@@ -3,6 +3,15 @@
 ;;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/")   t)
 (package-initialize)
 
+(defvar combofish-init-time 'nil)
+(defun combofish-display-benchmark()
+  (message "Emacs loaded %s packages in %.03fs"
+           (length package-activated-list)
+           (or combofish-init-time
+               (setq combofish-init-time (float-time (time-subtract (current-time) before-init-time))))))
+
+(add-hook 'emacs-startup-hook #'combofish-display-benchmark)
+
 (add-to-list 'load-path "~/.emacs.d/combofish/")
 
 ;; (when (not package-archive-contents)
@@ -23,7 +32,8 @@
 	yasnippet
 	neotree
 	all-the-icons
-	tabbar
+;;	tabbar
+;;	tabbar-ruler
 	vue-mode
                                         ;el-get
                                         ;cnfonts
@@ -171,13 +181,10 @@
 	  (require plug-in))
       '(cl
 	all-the-icons
-	tabbar
 	neotree
 	highlight-parentheses
 	combofish-defaults
 	combofish-keybindings))
-
-(tabbar-mode t)
 
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 

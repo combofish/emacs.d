@@ -99,7 +99,7 @@
       mouse-yank-at-point t       ;;使用鼠标中键可以粘贴
       auto-image-file-mode t      ;;让 Emacs 可以直接打开和显示图片。
       frame-title-format "%e %n %b        %Ib"			;initial-frame-alist (quote ((fullscreen . maximized)))
-      initial-scratch-message (insert "<startup time: " (emacs-init-time) ">\nDay Day up, good good study!" )
+      initial-scratch-message (insert "Day Day up, good good study!" )
       )
 
 (load-theme 'monokai 1)
