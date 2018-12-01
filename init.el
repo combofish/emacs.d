@@ -29,6 +29,7 @@
 	nodejs-repl
 	js2-refactor
 	highlight-parentheses
+	helm
 	yasnippet
 	neotree
 	all-the-icons
@@ -176,6 +177,7 @@
   ;; 显示垃圾回收信息，这个可以作为调试用;; 
   (setq garbage-collection-messages t))
 
+(helm-mode t)
 ;;>>>>
 (mapc #'(lambda (plug-in)
 	  (require plug-in))

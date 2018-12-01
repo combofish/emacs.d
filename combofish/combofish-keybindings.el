@@ -24,14 +24,15 @@
         ("C-s"        . swiper)
                                         ;("C-w"        . backward-kill-word)
 
-        ("C-c a"      . org-agenda)
+        
         ("C-h f"      . counsel-describe-function)            ;override.
-        ("C-h v"      . counsel-describe-variable)            
+        ("C-h v"      . counsel-describe-variable)
+	
 					;override.
-
 					;("C-c t"      . toggle-transparency)
-
                                         ;("C-c p s"    . helm-do-ag-project-root);全局搜索.
+
+	("C-c a"      . org-agenda)
         ("C-c y"      . youdao-dictionary-search-at-point)
         ("C-c C-r"    . ivy-resume)
 
@@ -44,8 +45,8 @@
 
         ("M-x"        . counsel-M-x)                     ;override.
         ("M-g"        . goto-line)
-	("M-j"        . tabbar-backward)
-	("M-k"        . tabbar-forward)
+					;	("M-j"        . tabbar-backward)
+					;	("M-k"        . tabbar-forward)
 	
         ("M-s m"      . counsel-imenu)                    ;函数列表。
         ("M-s o"      . occur-do-what-i-mean)
