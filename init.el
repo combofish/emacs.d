@@ -23,6 +23,7 @@
 	yasnippet
 	neotree
 	all-the-icons
+	tabbar
 	vue-mode
                                         ;el-get
                                         ;cnfonts
@@ -115,8 +116,6 @@
 			  (define-key js-mode-map (kbd "C-c C-l") 'nodejs-repl-load-file)
 			  (define-key js-mode-map (kbd "C-c C-z") 'nodejs-repl-switch-to-repl)))
 
-(require 'highlight-parentheses)
-
 (require 'yasnippet)
 (yas-global-mode 1)
 
@@ -161,19 +160,27 @@
 ;;>>>>
 ;; 设置垃圾回收，在 Windows 下，emacs25 版本会频繁出发垃圾回收，所以需要设置
 (when (eq system-type 'windows-nt) 
-	(setq gc-cons-threshold (* 512 1024 1024)) 
-	(setq gc-cons-percentage 0.5) 
-	(run-with-idle-timer 5 t #'garbage-collect)
-	;; 显示垃圾回收信息，这个可以作为调试用;; 
-	(setq garbage-collection-messages t))
-;;>>>>
-(require 'all-the-icons)
+  (setq gc-cons-threshold (* 512 1024 1024)) 
+  (setq gc-cons-percentage 0.5) 
+  (run-with-idle-timer 5 t #'garbage-collect)
+  ;; 显示垃圾回收信息，这个可以作为调试用;; 
+  (setq garbage-collection-messages t))
 
-(require 'neotree)
+;;>>>>
+(mapc #'(lambda (plug-in)
+	  (require plug-in))
+      '(cl
+	all-the-icons
+	tabbar
+	neotree
+	highlight-parentheses
+	combofish-defaults
+	combofish-keybindings))
+
+(tabbar-mode t)
+
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
-(require 'combofish-defaults)
-(require 'combofish-keybindings)
 					;(require 'combofish-org)
 
 (setq custom-file (expand-file-name 

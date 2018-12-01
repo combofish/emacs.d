@@ -6,7 +6,7 @@
         ("<f2>"     . open-my-init-file)
         ("<f3>"     . repeat-complex-command)
                                         ;("<f4>"     . other-window);; 跳转到 Emacs 的另一个buffer窗口
-        ;("<f4>"     . slime)
+					;("<f4>"     . slime)
         ("<f5>"     . gdb)
         ("<f6>"     . eshell)
         ("<f7>"     . open-eshell-other-buffer)
@@ -27,9 +27,9 @@
         ("C-c a"      . org-agenda)
         ("C-h f"      . counsel-describe-function)            ;override.
         ("C-h v"      . counsel-describe-variable)            
-;override.
+					;override.
 
-        ;("C-c t"      . toggle-transparency)
+					;("C-c t"      . toggle-transparency)
 
                                         ;("C-c p s"    . helm-do-ag-project-root);全局搜索.
         ("C-c y"      . youdao-dictionary-search-at-point)
@@ -44,6 +44,9 @@
 
         ("M-x"        . counsel-M-x)                     ;override.
         ("M-g"        . goto-line)
+	("M-j"        . tabbar-backward)
+	("M-k"        . tabbar-forward)
+	
         ("M-s m"      . counsel-imenu)                    ;函数列表。
         ("M-s o"      . occur-do-what-i-mean)
         ("M-s e"      . iedit-mode)                      ;默认是C-;.
