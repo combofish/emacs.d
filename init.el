@@ -186,6 +186,8 @@
       '(cl
 	all-the-icons
 	neotree
+	linum
+	magit
 	highlight-parentheses
 	combofish-defaults
 	combofish-keybindings))

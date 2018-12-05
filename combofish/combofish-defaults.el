@@ -9,6 +9,8 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 
+
+
 (global-linum-mode t)
 (global-hl-line-mode t)
 (global-auto-revert-mode t)           ;Emacs 自动加载外部修改过的文件。
@@ -85,13 +87,13 @@
 ;;(mouse-avoidance-mode 'animate)   
 ;;光标靠近鼠标指针时，让鼠标指针自动让开，别挡住视线。
 (setq-default cursor-type 'bar)   ;;可选值"bar".
-;(set-frame-parameter (selected-frame) 'alpha '(85 55))
+					;(set-frame-parameter (selected-frame) 'alpha '(85 55))
 
 (defun combofish-transparent ()
   (interactive)
   (set-frame-parameter (selected-frame) 'alpha '(85 55)))
 
-					;(display-time-mode 1)
+(display-time-mode 1)
 (setq display-time-24hr-format t  ;;时间使用24小时制
       display-time-day-and-date t ;;时间显示包括日期和具体时间
       display-time-interval 10    ;;时间的变化频率
@@ -103,6 +105,10 @@
       )
 
 (load-theme 'monokai 1)
+
+;;(require 'linum)
+(setq linum-format "%4d\u2502")
+(set-face-foreground 'linum "orange")
 
 (provide 'combofish-defaults)
 
