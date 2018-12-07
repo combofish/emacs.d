@@ -194,6 +194,12 @@
 
 					;(require 'combofish-org)
 
+;; (dolist (charset '(kana han cjk-misc bopomofo))
+;;     (set-fontset-font "fontset-default" charset
+;;                       (font-spec :family "STHeiti")))
+
+(set-fontset-font "fontset-default" 'cp936 '("SimSun" . "unicode-bmp"))
+
 (setq custom-file (expand-file-name 
 		   "combofish/combofish-custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
