@@ -32,11 +32,12 @@
 	js2-refactor
 	highlight-parentheses
 	helm
+	evil
 	yasnippet
 	neotree
 	all-the-icons
-;;	tabbar
-;;	tabbar-ruler
+	;;	tabbar
+	;;	tabbar-ruler
 	vue-mode
                                         ;el-get
                                         ;cnfonts
@@ -180,6 +181,44 @@
   (setq garbage-collection-messages t))
 
 (helm-mode t)
+(require 'evil)
+(evil-mode 1)
+
+(setq evil-default-state 'emacs) 
+(define-key evil-emacs-state-map (kbd "C-o") 'evil-execute-in-normal-state)
+
+(define-key evil-insert-state-map (kbd "C-d") 'evil-change-to-previous-state) 
+(define-key evil-normal-state-map (kbd "C-d") 'evil-force-normal-state) 
+(define-key evil-replace-state-map (kbd "C-d") 'evil-normal-state) 
+(define-key evil-visual-state-map (kbd "C-d") 'evil-exit-visual-state)
+
+					; 以下设置时使用t作为多剪贴板的起始按键，比如 tay(不是 "ay哦) tap(就是"ap啦)~ 
+(define-key evil-normal-state-map "t" 'evil-use-register)
+
+(defun evil-execute-in-normal-state () 
+  "Execute the next command in Normal state. C-o o works in insert-mode" 
+  (interactive) 
+  (evil-delay '(not (memq this-command 
+			  '(evil-execute-in-normal-state 
+			    evil-use-register 
+			    digit-argument 
+			    negative-argument 
+			    universal-argument 
+			    universal-argument-minus 
+			    universal-argument-more 
+			    universal-argument-other-key))) 
+      `(progn 
+	 (if (evil-insert-state-p) 
+	     (let ((prev-state (cdr-safe (assoc 'normal evil-previous-state-alist)))) 
+	       (evil-change-state prev-state) 
+	       (setq evil-previous-state 'normal)) 
+	   (evil-change-to-previous-state)) 
+	 (setq evil-move-cursor-back ',evil-move-cursor-back)) 
+    'post-command-hook) 
+  (setq evil-move-cursor-back nil) 
+  (evil-normal-state) 
+  (evil-echo "Switched to Normal state for the next command ...")) 
+
 ;;>>>>
 (mapc #'(lambda (plug-in)
 	  (require plug-in))
