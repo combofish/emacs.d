@@ -25,10 +25,15 @@
       '(
 	better-defaults
         company
+	pip-requirements
+	anaconda-mode
+	company-anaconda
+	undo-tree
         counsel
 	js2-mode
 	web-mode
 	nodejs-repl
+	magit
 	js2-refactor
 	highlight-parentheses
 	helm
@@ -65,7 +70,7 @@
 					;markdown-mode
 					;material-theme
 					;fcitx
-                                        ;use-package
+        use-package
         ))
 
 ;;own function.
@@ -87,6 +92,7 @@
 
 (setq auto-mode-alist
       (append
+       '(("\\.handlebars\\'"  . web-mode))
        '(("\\.js\\'" . js2-mode))
        '(("\\.wpy\\'" . vue-mode))
        '(("\\.html\\'" . web-mode))
@@ -154,6 +160,17 @@
 ;; ;;enable autopep8 formatting on save
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
+;;(require-package 'pip-requirements)
+
+;; (when (maybe-require-package 'anaconda-mode)
+;;   (after-load 'python
+;;     (add-hook 'python-mode-hook 'anaconda-mode)
+;;     (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
+;;   (when (maybe-require-package 'company-anaconda)
+;;     (after-load 'company
+;;       (after-load 'python
+;;         (push 'company-anaconda company-backends)))))
 
 (require 'recentf)
 (recentf-mode 1)
@@ -225,6 +242,8 @@
       '(cl
 	all-the-icons
 	neotree
+	linum
+	magit
 	highlight-parentheses
 	combofish-defaults
 	combofish-keybindings))
@@ -232,6 +251,7 @@
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 					;(require 'combofish-org)
+(global-undo-tree-mode)
 
 ;; (dolist (charset '(kana han cjk-misc bopomofo))
 ;;     (set-fontset-font "fontset-default" charset
