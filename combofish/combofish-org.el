@@ -1,8 +1,8 @@
 ;;;<init-org>
 
 (with-eval-after-load 'org
-  (setq org-src-fontify-natively t
-        org-agenda-files '("~/.emacs.d/org"))
+  ;;   (setq org-src-fontify-natively t
+  ;;         org-agenda-files '("~/.emacs.d/org"))
 
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/.emacs.d/gtd.org" 
@@ -10,10 +10,9 @@
            "* TODO [#B] %?\n %i\n"
            :empty-lines 1)))
 
-  ;;添加tags.
-  (setq org-tag-alist '(("苦差" . ?k)
-                        ("薪水" . ?s)
-                        ("课内作业")))
+  (setq org-tag-alist '(("homework"    . ?h)
+                        ("extensive"   . ?e)
+                        ("getDownNow"  . ?n)))
 
   (setq org-agenda-custom-commands
         '(("k" "work haha"
@@ -46,11 +45,22 @@
           ))
         ))
 
+;;(add-hook 'org-mode-hook #'(lambda () (setq truncate-lines nil)))
+
+;; (org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '((sh . t)
+;;    (python . t)
+;;    (R . t)
+;;    (ruby . t)
+;;    (ditaa . t)
+;;    (dot . t)
+;;    (octave . t)
+;;    (sqlite . t)
+;;    (perl . t)
+;;    (C . t)
+;;    ))
 ;;remmber.
 (global-set-key (kbd "C-c r") 'org-capture)
-
-
-)
-
 
 (provide 'combofish-org)
