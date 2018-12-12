@@ -246,6 +246,7 @@
 	;;magit
 	highlight-parentheses
 	combofish-defaults
+	combofish-org
 	combofish-keybindings))
 
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
