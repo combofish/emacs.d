@@ -26,6 +26,14 @@
 (set-language-environment "UTF-8")
 (setenv "LC_ALL" "en_US.UTF-8")
 
+;; 设置垃圾回收，在 Windows 下，emacs25 版本会频繁出发垃圾回收，所以需要设置
+(when (eq system-type 'windows-nt) 
+  (setq gc-cons-threshold (* 512 1024 1024)
+	gc-cons-percentage 0.5) 
+  (run-with-idle-timer 5 t #'garbage-collect)
+  ;; 显示垃圾回收信息，这个可以作为调试用;; 
+  (setq garbage-collection-messages t))
+
 ;;;重新缩进全部缓冲区的代码.
 (defun indent-buffer ()
   "Indent the currently visited buffer."
