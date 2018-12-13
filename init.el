@@ -33,7 +33,7 @@
 	js2-mode
 	web-mode
 	nodejs-repl
-	;magit
+					;magit
 	js2-refactor
 	highlight-parentheses
 	helm
@@ -54,7 +54,7 @@
         hungry-delete
         iedit
         youdao-dictionary
-					;slime
+	slime slime-company elisp-slime-nav
         swiper
         smartparens
 	monokai-theme
@@ -146,11 +146,15 @@
 ;;          ("\\.markdown\\'" . markdown-mode))
 ;;   :init (setq markdown-command "multimarkdown"))
 
-;; Set your lisp system and, optionally, some contribs
-;; (setq inferior-lisp-program "/usr/bin/sbcl"
-;;                                         ;slime-contribs '(slime-fancy)
-;;       )
-;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "/usr/bin/sbcl"
+      slime-contribs '(slime-fancy slime-company))
+
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+
+;; (define-key company-active-map (kbd "\C-n") 'company-select-next)
+;; (define-key company-active-map (kbd "\C-p") 'company-select-previous)
+;; (define-key company-active-map (kbd "\C-d") 'company-show-doc-buffer)
+;; (define-key company-active-map (kbd "M-.") 'company-show-location)
 
 (elpy-enable)
 (when (require 'flycheck nil t)
@@ -209,6 +213,13 @@
 (define-key evil-replace-state-map (kbd "C-d") 'evil-normal-state) 
 (define-key evil-visual-state-map (kbd "C-d") 'evil-exit-visual-state)
 
+(require 'elisp-slime-nav)
+(dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+  (add-hook hook 'elisp-slime-nav-mode))
+
+(dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+  (add-hook hook 'turn-on-elisp-slime-nav-mode))
+
 ;; 以下设置时使用t作为多剪贴板的起始按键，比如 tay(不是 "ay哦) tap(就是"ap啦)~ 
 (define-key evil-normal-state-map "t" 'evil-use-register)
 
@@ -244,6 +255,7 @@
 	neotree
 	linum
 	;;magit
+
 	highlight-parentheses
 	combofish-defaults
 	combofish-org
@@ -251,7 +263,6 @@
 
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
-					;(require 'combofish-org)
 (global-undo-tree-mode)
 
 ;; (dolist (charset '(kana han cjk-misc bopomofo))

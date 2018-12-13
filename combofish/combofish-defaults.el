@@ -111,4 +111,3 @@
 (set-face-foreground 'linum "orange")
 
 (provide 'combofish-defaults)
-
