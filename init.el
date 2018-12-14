@@ -34,6 +34,7 @@
 	web-mode
 	nodejs-repl
 					;magit
+	htmlize
 	js2-refactor
 	highlight-parentheses
 	helm

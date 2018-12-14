@@ -11,7 +11,7 @@
  '(hl-paren-delay 0.03)
  '(package-selected-packages
    (quote
-    (elisp-slime-nav slime-company slime magit undo-tree anaconda-mode company-anaconda pip-requirements helm-themes helm tabbar vue-mode all-the-icons neotree yasnippet highlight-parentheses js2-refactor js2-mode w3m youdao-dictionary smartparens iedit hungry-delete flycheck expand-region counsel company))))
+    (htmlize elisp-slime-nav slime-company slime magit undo-tree anaconda-mode company-anaconda pip-requirements helm-themes helm tabbar vue-mode all-the-icons neotree yasnippet highlight-parentheses js2-refactor js2-mode w3m youdao-dictionary smartparens iedit hungry-delete flycheck expand-region counsel company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
