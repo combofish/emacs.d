@@ -35,6 +35,7 @@
 	nodejs-repl
 					;magit
 	htmlize
+	pdf-tools
 	js2-refactor
 	highlight-parentheses
 	helm

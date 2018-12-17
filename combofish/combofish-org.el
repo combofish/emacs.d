@@ -4,6 +4,13 @@
   ;;   (setq org-src-fontify-natively t
   ;;         org-agenda-files '("~/.emacs.d/org"))
 
+  
+  '(require 'org-pdfview)
+
+  (add-to-list 'org-file-apps 
+               '("\\.pdf\\'" . (lambda (file link)
+                                 (org-pdfview-open link))))
+  
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/.emacs.d/gtd.org" 
 					   "任务安排")
