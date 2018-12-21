@@ -16,8 +16,8 @@
 
 (add-to-list 'load-path "~/.emacs.d/combofish/")
 
-;; (when (not package-archive-contents)
-;;    (package-refresh-contents))
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 (mapc #'(lambda (pkg)
           (unless (package-installed-p pkg)
@@ -62,6 +62,9 @@
 	monokai-theme
         flycheck
 	elpy
+
+	julia-mode
+	flycheck-julia
 					;pyim
 					;posframe
 					;use-package
@@ -250,10 +253,17 @@
 	linum
 	;;magit
 
+	julia-mode
+	flycheck-julia
+	
 	highlight-parentheses
 	combofish-defaults
 	combofish-org
 	combofish-keybindings))
+
+(flycheck-julia-setup)
+;;(add-to-list 'flycheck-global-modes 'julia-mode)
+;;(add-to-list 'flycheck-global-modes 'ess-julia-mode)
 
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
