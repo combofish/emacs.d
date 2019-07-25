@@ -1,4 +1,4 @@
-(require 'package)
+1(require 'package)
 
 (add-to-list 'package-archives '("melpa-qing" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/") t)
 (add-to-list 'package-archives '("melpa-milkbox" . "http://melpa.milkbox.net/packages/")   t)
@@ -15,6 +15,8 @@
 (add-hook 'emacs-startup-hook #'combofish-display-benchmark)
 
 (add-to-list 'load-path "~/.emacs.d/combofish/")
+
+(require 'uptimes)
 
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -154,7 +156,7 @@
 (setq inferior-lisp-program "/usr/bin/sbcl"
       slime-contribs '(slime-fancy slime-company))
 
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
 
 ;; (define-key company-active-map (kbd "\C-n") 'company-select-next)
 ;; (define-key company-active-map (kbd "\C-p") 'company-select-previous)

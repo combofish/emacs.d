@@ -9,8 +9,6 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 
-
-
 (global-linum-mode t)
 (global-hl-line-mode t)
 (global-auto-revert-mode t)           ;Emacs 自动加载外部修改过的文件。
@@ -24,7 +22,7 @@
 (delete-selection-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
 (set-language-environment "UTF-8")
-(setenv "LC_ALL" "en_US.UTF-8")
+;;(setenv "LC_ALL" "en_US.UTF-8")
 
 ;; 设置垃圾回收，在 Windows 下，emacs25 版本会频繁出发垃圾回收，所以需要设置
 (when (eq system-type 'windows-nt) 
@@ -111,6 +109,29 @@
       frame-title-format "%e %n %b        %Ib"			;initial-frame-alist (quote ((fullscreen . maximized)))
       initial-scratch-message (insert "Day Day up, good good study!" )
       )
+
+
+;;;中文与英文字体设置
+;; Setting English Font
+
+					;(set-face-attribute 'default nil :font "Monaco 14")
+
+;;Chinese Font
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+  (set-fontset-font (frame-parameter nil 'font) charset
+		    (font-spec :family "WenQuanYi Micro Hei Mono" :size 16)))
+
+;;(set-fontset-font t 'han (font-spec :family "Microsoft Yahei" :size 16)
+
+;; (set-fontset-font (frame-parameter nil 'font)
+;;                   'han (font-spec :family "Microsoft Yahei"
+;;                                   :size 12))
+
+; (set-default-font
+;  "-outline-Lucida Console-normal-normal-normal-mono-*-*-*-*-*-*-iso10646-1")
+
+;(setq default-frame-alist (font . "微软雅黑Monaco 12"))
+
 
 (load-theme 'monokai 1)
 

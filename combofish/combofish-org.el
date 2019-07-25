@@ -7,6 +7,27 @@
   
   '(require 'org-pdfview)
 
+					;(setq python-shell-completion-native-turn off t)
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (python . t)
+     ;;(sh . t)
+     (R . t)
+     (ruby . t)
+     (js .t)
+     ;;(javascript .t)
+     ;; (nodejs . t)
+     (ditaa . t)
+     (dot . t)
+     (octave . t)
+     (sqlite . t)
+     (perl . t)
+     (C . t)
+     ))
+
+  (setq python-shell-completion-native-disabled-interpreters '("python"))
+
   (add-to-list 'org-file-apps 
                '("\\.pdf\\'" . (lambda (file link)
                                  (org-pdfview-open link))))
@@ -19,7 +40,10 @@
 
   (setq org-tag-alist '(("homework"    . ?h)
                         ("extensive"   . ?e)
-                        ("getDownNow"  . ?n)))
+                        ("getDownNow"  . ?n)
+			(:startgroup   . nil)
+			("@study"      . ?s)
+			(:endgroup     . nil)))
 
   (setq org-agenda-custom-commands
         '(("k" "work haha"
@@ -54,19 +78,6 @@
 
 ;;(add-hook 'org-mode-hook #'(lambda () (setq truncate-lines nil)))
 
-;; (org-babel-do-load-languages
-;;  'org-babel-load-languages
-;;  '((sh . t)
-;;    (python . t)
-;;    (R . t)
-;;    (ruby . t)
-;;    (ditaa . t)
-;;    (dot . t)
-;;    (octave . t)
-;;    (sqlite . t)
-;;    (perl . t)
-;;    (C . t)
-;;    ))
 ;;remmber.
 (global-set-key (kbd "C-c r") 'org-capture)
 
