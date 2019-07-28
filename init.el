@@ -154,7 +154,7 @@
 (setq inferior-lisp-program "/usr/bin/sbcl"
       slime-contribs '(slime-fancy slime-company))
 
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;;(load (expand-file-name "~/quicklisp/slime-helper.el"))
 
 ;; (define-key company-active-map (kbd "\C-n") 'company-select-next)
 ;; (define-key company-active-map (kbd "\C-p") 'company-select-previous)
