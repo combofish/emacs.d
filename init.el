@@ -267,6 +267,9 @@
 ;;(add-to-list 'flycheck-global-modes 'julia-mode)
 ;;(add-to-list 'flycheck-global-modes 'ess-julia-mode)
 
+(setq default-tab-width 4)
+(setq-default indent-tabs-mode nil)
+
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 (global-undo-tree-mode)
