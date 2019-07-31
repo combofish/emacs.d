@@ -4,6 +4,8 @@
   ;;   (setq org-src-fontify-natively t
   ;;         org-agenda-files '("~/.emacs.d/org"))
 
+                                        ; 代码块中的语法高亮
+  ;; (setq org-src-fontify-natively t)
   
   '(require 'org-pdfview)
 
@@ -11,8 +13,11 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
+     (restclient . t)
      (python . t)
-     ;;(sh . t)
+     ;; error
+     ;;     (sh . t)
+     (shell . t)
      (R . t)
      (ruby . t)
      (js .t)
