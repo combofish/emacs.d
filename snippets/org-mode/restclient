@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: file header
+# key: rest
+# binding: direct-keybinding
+# --
+
+#+BEGIN_SRC restclient
+GET $0
+#+END_SRC

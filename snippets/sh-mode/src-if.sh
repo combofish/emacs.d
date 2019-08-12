@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: if 
+# key: if
+# binding: direct-keybinding
+# --
+if $1 ; then
+   $0
+
+fi

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: python src block
+# key: ps
+# binding: direct-keybinding
+# --
+
+#+BEGIN_SRC python :session :results output
+$0
+
+#+END_SRC
