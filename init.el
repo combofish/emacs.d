@@ -27,6 +27,8 @@
       '(
 	better-defaults
         company
+        which-key
+        org-mind-map
 	pip-requirements
 	anaconda-mode
 	company-anaconda
@@ -74,7 +76,7 @@
         expand-region
 	py-autopep8
                                         ; dashboard
-					;markdown-mode
+        markdown-mode
 					;material-theme
 					;fcitx
         use-package
@@ -145,6 +147,16 @@
 ;; snippet2
 (require 'yasnippet)
 (yas-global-mode 1)
+
+;; markdown
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'gfm-mode "markdown-mode"
+  "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
 ;; (use-package markdown-mode
 ;;   :ensure t
@@ -246,6 +258,46 @@
   (evil-normal-state) 
   (evil-echo "Switched to Normal state for the next command ...")) 
 
+
+(setq python-indent-offset 4)
+(setq default-tab-width 4)
+(setq-default indent-tabs-mode nil)
+
+;; anaconda-mode
+(add-hook 'python-mode-hook 'anaconda-mode)
+(add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+;; This is an Emacs package that creates graphviz directed graphs from
+;; the headings of an org file
+(use-package org-mind-map
+  :init
+  (require 'ox-org)
+  :ensure t
+  ;; Uncomment the below if 'ensure-system-packages` is installed
+  ;;:ensure-system-package (gvgen . graphviz)
+  :config
+  (setq org-mind-map-engine "dot")       ; Default. Directed Graph
+  ;; (setq org-mind-map-engine "neato")  ; Undirected Spring Graph
+  ;; (setq org-mind-map-engine "twopi")  ; Radial Layout
+  ;; (setq org-mind-map-engine "fdp")    ; Undirected Spring Force-Directed
+  ;; (setq org-mind-map-engine "sfdp")   ; Multiscale version of fdp for the layout of large graphs
+  ;; (setq org-mind-map-engine "twopi")  ; Radial layouts
+  ;; (setq org-mind-map-engine "circo")  ; Circular Layout
+  )
+
+
+
+;;(auto-image-file-mode t)
+
+;; (require 'org-mind-map)
+
+(require 'which-key)
+(which-key-mode)
+(which-key-setup-side-window-right)
+
 ;;>>>>
 (mapc #'(lambda (plug-in)
 	  (require plug-in))
@@ -267,8 +319,8 @@
 ;;(add-to-list 'flycheck-global-modes 'julia-mode)
 ;;(add-to-list 'flycheck-global-modes 'ess-julia-mode)
 
-(setq default-tab-width 4)
-(setq-default indent-tabs-mode nil)
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 

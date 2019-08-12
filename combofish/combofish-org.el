@@ -8,6 +8,8 @@
   ;; (setq org-src-fontify-natively t)
   
   '(require 'org-pdfview)
+  ;; why ? 
+  '(require 'ox-gfm nil t)
 
 					;(setq python-shell-completion-native-turn off t)
   (org-babel-do-load-languages
@@ -32,6 +34,7 @@
      ))
 
   (setq python-shell-completion-native-disabled-interpreters '("python"))
+  (setq python-indent-offset 4)
 
   (add-to-list 'org-file-apps 
                '("\\.pdf\\'" . (lambda (file link)
