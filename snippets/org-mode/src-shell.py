@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: python src block
+# name: shell src block
 # key: ss
 # binding: direct-keybinding
 # --

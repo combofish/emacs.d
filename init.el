@@ -36,6 +36,8 @@
         counsel
 	js2-mode
 	web-mode
+        yaml-mode
+        exec-path-from-shell
 	nodejs-repl
 					;magit
 	htmlize
@@ -67,6 +69,10 @@
         flycheck
 	elpy
 
+        dash
+        dash-functional
+        
+        goto-last-change
 	julia-mode
 	flycheck-julia
 					;pyim
@@ -318,6 +324,8 @@
 (flycheck-julia-setup)
 ;;(add-to-list 'flycheck-global-modes 'julia-mode)
 ;;(add-to-list 'flycheck-global-modes 'ess-julia-mode)
+
+(require 'goto-last-change)
 
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
