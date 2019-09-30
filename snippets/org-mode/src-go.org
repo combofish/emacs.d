@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: go src block
+# key: gs
+# binding: direct-keybinding
+# --
+
+#+BEGIN_SRC go
+$0
+
+#+END_SRC

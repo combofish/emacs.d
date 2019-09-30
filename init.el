@@ -27,6 +27,7 @@
       '(
 	better-defaults
         company
+        go-mode
         which-key
         org-mind-map
 	pip-requirements
@@ -112,6 +113,7 @@
        '(("\\.wpy\\'" . vue-mode))
        '(("\\.html\\'" . web-mode))
        '(("\\.wxml\\'" . web-mode))
+       '(("\\.go\\'" . go-mode))
        auto-mode-alist))
 
 (add-hook 'js-mode-hook #'js2-refactor-mode)
