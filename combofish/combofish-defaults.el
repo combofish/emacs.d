@@ -14,8 +14,8 @@
 (global-auto-revert-mode t)           ;Emacs 自动加载外部修改过的文件。
 (global-company-mode t)
 (global-hungry-delete-mode)
-(global-flycheck-mode t)
-(smartparens-global-mode t)
+;(global-flycheck-mode t)
+;(smartparens-global-mode t)
 
 (show-paren-mode t)
 

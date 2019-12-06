@@ -10,7 +10,6 @@
   '(require 'org-pdfview)
   ;; why ? 
   '(require 'ox-gfm nil t)
-
 					;(setq python-shell-completion-native-turn off t)
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -19,7 +18,7 @@
      (python . t)
      ;; error
      ;;     (sh . t)
-     (shell . t)
+     ;(shell . t)
      (R . t)
      (ruby . t)
      (js .t)
