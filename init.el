@@ -10,8 +10,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar package-list '(
-		       company
+(defvar package-list '(company
 		       hungry-delete
 		       better-defaults
 		       youdao-dictionary
@@ -49,27 +48,13 @@
 	    (package-install pkg)))
       package-list)
 
-;;own function.
-(defun open-my-init-file ()
-  (interactive)
-  (find-file "~/.emacs.d/init.el"))
-
-(defun open-eshell-other-buffer ()
-  "Open eshell in other buffer"
-  (interactive)
-  (split-window-vertically)
-  (eshell))
-
-
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-menu-item 15)
-
+; 加载 .el 文件列表
 (defvar package-list-require
   '( magit
 
 					;ox-gfm
-     
+     funcs
+     tools
      combofish-defaults
      combofish-org
      combofish-keybindings
