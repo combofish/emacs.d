@@ -30,7 +30,6 @@
 					;ob-shell
 
 					;exwm
-		       
 		       swiper
 		       lua-mode
 		       better-defaults
@@ -48,17 +47,17 @@
 	    (package-install pkg)))
       package-list)
 
-; 加载 .el 文件列表
+;; 加载 .el 文件列表
 (defvar package-list-require
-  '( magit
+  '(magit
 
 					;ox-gfm
-     funcs
-     tools
-     combofish-defaults
-     combofish-org
-     combofish-keybindings
-     ))
+    funcs
+    tools
+    combofish-defaults
+    combofish-org
+    combofish-keybindings
+    ))
 
 (mapc #'(lambda (plug-in)
 	  (require plug-in))
@@ -66,6 +65,7 @@
 
 (setq custom-file (expand-file-name 
 		   "combofish/combofish-custom.el" user-emacs-directory))
+
 (when (file-exists-p custom-file)
   (load-file custom-file))
 

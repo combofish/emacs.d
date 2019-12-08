@@ -4,7 +4,7 @@
 # binding: direct-keybinding
 # --
 #!/usr/bin/env python
-# coding:utf-8
+# author: combofish
 # Filename: `(file-name-nondirectory buffer-file-name)`
 
 $0
