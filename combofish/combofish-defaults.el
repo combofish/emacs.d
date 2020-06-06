@@ -6,12 +6,12 @@
       auto-save-default nil)
 
 (scroll-bar-mode 0)
-(tool-bar-mode 0)
-(menu-bar-mode 0)
+;;(tool-bar-mode 0)
+;;(menu-bar-mode 0)
 
 
 
-(global-linum-mode t)
+;;(global-linum-mode t)
 (global-hl-line-mode t)
 (global-auto-revert-mode t)           ;Emacs 自动加载外部修改过的文件。
 (global-company-mode t)
@@ -90,7 +90,7 @@
 
 
 ;;; ui
-(menu-bar-mode 0)
+;;(menu-bar-mode 0)
 (tool-bar-mode -1)
 ;;(mouse-avoidance-mode 'animate)   
 ;;光标靠近鼠标指针时，让鼠标指针自动让开，别挡住视线。

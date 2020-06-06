@@ -15,6 +15,7 @@
 (add-hook 'emacs-startup-hook #'combofish-display-benchmark)
 
 (add-to-list 'load-path "~/.emacs.d/combofish/")
+(add-to-list 'load-path "~/.emacs.d/site-lisp")
 
 (when (not package-archive-contents)
   (package-refresh-contents))
@@ -46,6 +47,7 @@
 	;;	tabbar
 	;;	tabbar-ruler
 	vue-mode
+	matlab-mode
                                         ;el-get
                                         ;cnfonts
 					;default-text-scale
@@ -54,7 +56,6 @@
                                         ;exwm-edit
 					;helm-ag   ;全局搜索。
         hungry-delete
-        iedit
         youdao-dictionary
 	slime slime-company elisp-slime-nav
         swiper
@@ -76,6 +77,12 @@
 					;material-theme
 					;fcitx
         use-package
+
+					;New config
+	key-chord
+	iy-go-to-char
+	multiple-cursors
+	iedit
         ))
 
 ;;own function.
@@ -88,6 +95,11 @@
   (interactive)
   (split-window-vertically)
   (eshell))
+
+(fset 'eval-replace
+      (kmacro-lambda-form [?\C-j backspace ?\C-a backspace ?  ?\C-b ?\C-= backspace ?\M-x ?d ?e ?l down return ?\M-f] 0 "%d"))
+
+(global-set-key (kbd "C-c t e") 'eval-replace)
 
 ;;;<init-packages>
 
@@ -244,6 +256,7 @@
   (evil-normal-state) 
   (evil-echo "Switched to Normal state for the next command ...")) 
 
+
 ;;>>>>
 (mapc #'(lambda (plug-in)
 	  (require plug-in))
@@ -255,11 +268,21 @@
 
 	julia-mode
 	flycheck-julia
+	;; New config
+
+	key-chord
+	iy-go-to-char
+	multiple-cursors
+	combofish-test
+	;; End new config
 	
 	highlight-parentheses
 	combofish-defaults
 	combofish-org
 	combofish-keybindings))
+
+(combofish-mode 1)
+(key-chord-mode 1)
 
 (flycheck-julia-setup)
 ;;(add-to-list 'flycheck-global-modes 'julia-mode)
