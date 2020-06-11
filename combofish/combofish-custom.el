@@ -6,7 +6,7 @@
  '(company-idle-delay 0.08)
  '(company-minimum-prefix-length 1)
  '(global-highlight-parentheses-mode t)
- '(hl-paren-background-colors (quote ("blue" "magenta")))
+ '(hl-paren-background-colors '("blue" "magenta"))
  '(hl-paren-colors nil)
  '(hl-paren-delay 0.03)
  '(org-export-backends (quote (ascii html icalendar latex md odt)))
