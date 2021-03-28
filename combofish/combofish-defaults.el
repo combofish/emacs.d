@@ -10,7 +10,7 @@
 ;;(menu-bar-mode 0)
 
 
-;;(global-linum-mode t)
+(global-linum-mode t)
 (global-hl-line-mode t)
 (global-auto-revert-mode t)           ;Emacs 自动加载外部修改过的文件。
 (global-company-mode t)
@@ -22,7 +22,7 @@
 
 (delete-selection-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
-(set-language-environment "UTF-8")
+;; (set-language-environment "UTF-8")
 ;;(setenv "LC_ALL" "en_US.UTF-8")
 
 ;; 设置垃圾回收，在 Windows 下，emacs25 版本会频繁出发垃圾回收，所以需要设置
@@ -99,6 +99,8 @@
 (defun combofish-transparent ()
   (interactive)
   (set-frame-parameter (selected-frame) 'alpha '(85 55)))
+
+;(combofish-transparent)
 
 (display-time-mode 1)
 (setq display-time-24hr-format t  ;;时间使用24小时制

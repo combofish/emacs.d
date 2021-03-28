@@ -1,10 +1,9 @@
 (require 'package)
 
-(add-to-list 'package-archives '("melpa-qing"
-				 . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/") t) ;;(add-to-list
-'package-archives '("melpa-milkbox"
-		    . "http://melpa.milkbox.net/packages/") t) ;;(add-to-list
-'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-qing" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/") t) 
+
+;;(add-to-list 'package-archives '("melpa-milkbox" . "http://melpa.milkbox.net/packages/") t) 
+;;(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/combofish/") (add-to-list
@@ -21,18 +20,24 @@
 					neotree all-the-icons ;; tabbar ;; tabbar-ruler
 					vue-mode matlab-mode ;el-get ;cnfonts
 					;default-text-scale lua-mode ;exwm ;exwm-edit
-					;helm-ag ;全局搜索。hungry-delete
+					;helm-ag ;全局搜索。
+					hungry-delete
 					youdao-dictionary slime slime-company
 					elisp-slime-nav swiper smartparens
 					monokai-theme flycheck elpy
 
 					julia-mode flycheck-julia ;pyim ;posframe
-					;use-package ; ein expand-region py-autopep8 ;
-					dashboard ;markdown-mode ;material-theme ;fcitx
+					;use-package ; ein 
+					expand-region 
+					py-autopep8 
+					;					dashboard ;markdown-mode ;material-theme ;fcitx
 					use-package
 
-					;New config key-chord
-					;;iy-go-to-char multiple-cursors iedit
+					;New config 
+					key-chord
+					;;iy-go-to-char 
+					multiple-cursors 
+					iedit
 
 					company hungry-delete better-defaults
 					youdao-dictionary monokai-theme expand-region
@@ -42,9 +47,12 @@
 
 					markdown-mode smartparens
 					
-					restclient ob-go ox-gfm ;ob-shell
+					ob-restclient ;restclient
+					ob-go ox-gfm ;ob-shell
 
-					;exwm swiper lua-mode
+					;exwm 
+					swiper 
+					lua-mode
 					better-defaults which-key company-anaconda
 					counsel yaml-mode exec-path-from-shell magit
 					helm ))
@@ -54,8 +62,7 @@
 			(package-install pkg))) package-list)
 
 
-;;own function.  (defun open-my-init-file () (interactive) (find-file
-"~/.emacs.d/init.el"))
+;;own function.  (defun open-my-init-file () (interactive) (find-file "~/.emacs.d/init.el"))
 
 (defun open-eshell-other-buffer () "Open eshell in other buffer"
        (interactive) (split-window-vertically) (eshell))
@@ -80,32 +87,30 @@
 ;;(add-hook 'js-mode-hook #'js2-refactor-mode)
 ;;(js2r-add-keybindings-with-prefix "C-c C-m")
 
-(defun my-web-mode-indent-setup () (setq web-mode-markup-indent-offset
-					 2) ; web-mode, html tag in html file (setq
-       web-mode-css-indent-offset 2) ; web-mode, css in html file (setq
-web-mode-code-indent-offset 2) ; web-mode, ;js code in html file )
-(add-hook 'web-mode-hook 'my-web-mode-indent-setup)
+(defun my-web-mode-indent-setup () (setq web-mode-markup-indent-offset	 2) ; web-mode, html tag in html file 
+       (setq web-mode-css-indent-offset 2) ; web-mode, css in html file 
+       (setq web-mode-code-indent-offset 2) ; web-mode, ;js code in html file )
+       (add-hook 'web-mode-hook 'my-web-mode-indent-setup)
 
-(defun my-toggle-web-indent () (interactive) ;; web development (if
-       (or (eq major-mode 'js-mode) (eq major-mode 'js2-mode)) (progn (setq
-								       js-indent-level (if (= js-indent-level 2) 4 2)) (setq
-								       js2-basic-offset (if (= js2-basic-offset 2) 4 2))))
+       (defun my-toggle-web-indent () (interactive) ;; web development (if
+	      (or (eq major-mode 'js-mode) (eq major-mode 'js2-mode)) (progn (setq
+									      js-indent-level (if (= js-indent-level 2) 4 2)) (setq
+									      js2-basic-offset (if (= js2-basic-offset 2) 4 2))))
 
-(if (eq major-mode 'web-mode) (progn (setq
-				      web-mode-markup-indent-offset (if (=
-									 web-mode-markup-indent-offset 2) 4 2)) (setq
-				      web-mode-css-indent-offset (if (= web-mode-css-indent-offset 2)
-								     4 2)) (setq web-mode-code-indent-offset (if (=
-														  web-mode-code-indent-offset 2) 4 2)))) (if (eq major-mode
-																				 'css-mode) (setq css-indent-offset (if (= css-indent-offset 2) 4
-																								      2)))
+       (if (eq major-mode 'web-mode) (progn (setq
+					     web-mode-markup-indent-offset (if (=
+										web-mode-markup-indent-offset 2) 4 2)) (setq
+					     web-mode-css-indent-offset (if (= web-mode-css-indent-offset 2)
+									    4 2)) (setq web-mode-code-indent-offset (if (=
+															 web-mode-code-indent-offset 2) 4 2)))) (if (eq major-mode
+																					'css-mode) (setq css-indent-offset (if (= css-indent-offset 2) 4
+																									     2)))
 
-(setq indent-tabs-mode nil))
+       (setq indent-tabs-mode nil))
 
 (global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
 
 ;;(require 'nodejs-repl)
-
 ;; (add-hook 'js-mode-hook (lambda () (define-key js-mode-map (kbd
 ;; 			  "C-x C-e")
 ;; 			  'nodejs-repl-send-last-expression)
@@ -144,16 +149,29 @@ web-mode-code-indent-offset 2) ; web-mode, ;js code in html file )
 (mapc #'(lambda (pkg) (unless (package-installed-p pkg)
 			(package-install pkg))) package-list)
 
-;; 加载 .el 文件列表(defvar package-list-require '(cl all-the-icons
-neotree linum ;;magit
+;; 加载 .el 文件列表
+(defvar package-list-require '(cl all-the-icons
+				  neotree
+				  linum 
+				  ;;magit
 
-julia-mode flycheck-julia ;; New config
+				  julia-mode
+				  flycheck-julia 
+				  ;; New config
 
-key-chord ;; iy-go-to-char multiple-cursors combofish-test ;; End
-new config
+				  key-chord ;; iy-go-to-char 
+				  multiple-cursors
+				  combofish-test 
+				  ;; End new config
 
-highlight-parentheses magit ;ox-gfm funcs tools combofish-defaults
-combofish-org combofish-keybindings ))
+				  highlight-parentheses
+				  magit 
+					;ox-gfm 
+				  funcs
+				  tools
+				  combofish-defaults
+				  combofish-org
+				  combofish-keybindings ))
 
 
 (mapc #'(lambda (plug-in) (require plug-in)) package-list-require)
@@ -161,8 +179,9 @@ combofish-org combofish-keybindings ))
 
 (combofish-mode 1) (key-chord-mode 1)
 
-(flycheck-julia-setup) ;;(add-to-list 'flycheck-global-modes
-'julia-mode) ;;(add-to-list 'flycheck-global-modes 'ess-julia-mode)
+(flycheck-julia-setup) 
+;;(add-to-list 'flycheck-global-modes 'julia-mode) 
+;;(add-to-list 'flycheck-global-modes 'ess-julia-mode)
 
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 

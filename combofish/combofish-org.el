@@ -27,6 +27,7 @@
      (ditaa . t)
      (dot . t)
      (octave . t)
+     (sql . t)
      (sqlite . t)
      (perl . t)
      (C . t)
