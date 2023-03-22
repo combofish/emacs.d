@@ -10,25 +10,16 @@
   (interactive)
   (indent-region-or-buffer)
   (save-buffer)
-  ;;(save-some-buffers)
-  (async-shell-command (concat "runsf.py " (buffer-file-name)))
-  ;; (shrink-window-if-larger-than-buffer (get-buffer-window shell-command-buffer-name-async)) 
+  (save-some-buffers)
+  (async-shell-command (concat "runsf.py " (buffer-file-name))))
 
-  ;; (fit-frame-to-buffer (get-buffer-window shell-command-buffer-name-async)
-  ;; 		       ;; max-height
-  ;; 		       150
-  ;; 		       ;; min-height
-  ;; 		       100)
+;; (compile (concat "clang++ -std=c++17 -fsanitize=address -Wall -Werror -Wreturn-type -fno-omit-frame-pointer -g -o main "
+;; 			       buffer-file-name " && timeout -s 9 60s ./main && rm main" )))
 
-  ;;; Error by not a live frame
-  ;; (fit-frame-to-buffer (get-buffer-window (buffer-name))
-  ;; 		       ;; max-height
-  ;; 		       150
-  ;; 		       ;; min-height
-  ;; 		       100)
-  
-  )
+;; use shell script
+;; (async-shell-command (concat "clang++ -std=c++17 -fsanitize=address -Wall -Werror -Wreturn-type -fno-omit-frame-pointer -g "
+;; 			       (concat (buffer-file-name " -o main && timeout -s 9 60s ./main && rm main")))))
+
 
 (provide 'core-funcs)
-
 

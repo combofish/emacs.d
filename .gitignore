@@ -1,3 +1,15 @@
+# ignore dirs
+.cache
+.dap-breakpoints
+.lsp-session-v1
+eln-cache
+elpa
+eshell
+transient
+
+# recent file
+recentf
+
 # Compiled
 *.elc
 
